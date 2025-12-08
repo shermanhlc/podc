@@ -1,3 +1,6 @@
+# can be run with:
+# V_USER=$USER V_UID=$UID nix build .#rddc_image --impure && docker load < result
+
 {
     description = "test docker shit";
 
