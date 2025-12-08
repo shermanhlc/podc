@@ -1,0 +1,21 @@
+{
+  description = "docker with user args";
+
+  outputs = { self, nixpkgs } @ inputs:
+  {
+    packages.x86_64-linux.rddc_image =
+      { userName ? "sherman", userId ? 1000 }:
+      let
+        pkgs = import nixpkgs { system = "x86_64-linux"; };
+      in
+      pkgs.dockerTools.buildImage {
+        name = "rddc_image";
+
+        runAsRoot = ''
+          ${pkgs.dockerTools.shadowSetup}
+          groupadd -g ${toString userId} ${userName}
+          useradd -m -u ${toString userId} -g ${toString userId} ${userName}
+        '';
+      };
+  };
+}

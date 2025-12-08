@@ -24,11 +24,14 @@
                 pkgs.qt6.qtbase
             ];
 
-            runAsRoot = ''
+            runAsRoot = let
+                user = builtins.getEnv "V_USER";
+                uid = builtins.getEnv "V_UID";
+            in ''
                 ${pkgs.dockerTools.shadowSetup}
 
-                groupadd -g 1000 sherman
-                useradd -m -u 1000 -g 1000 sherman
+                groupadd -g ${uid} ${user}
+                useradd -m -u ${uid} -g ${uid} ${user}
             '';
             #    mkdir /testdir
             #    chown -R sherman:sherman /testdir
@@ -36,7 +39,7 @@
             created="now";
             config = {
                 WorkingDir="/workbench";
-                User="sherman";
+                User=builtins.getEnv "V_USER";
                 Cmd=[ "/bin/bash" ];
                 Volumes = {
                     "/workbench" = {};
