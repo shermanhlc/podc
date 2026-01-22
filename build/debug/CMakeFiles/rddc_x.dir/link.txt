@@ -1,1 +1,0 @@
-/bin/g++ -g -Wl,--dependency-file=CMakeFiles/rddc_x.dir/link.d CMakeFiles/rddc_x.dir/main.cpp.o -o bin/rddc_x  -Wl,-rpath,/lib /lib/libQt6Core.so.6.9.3

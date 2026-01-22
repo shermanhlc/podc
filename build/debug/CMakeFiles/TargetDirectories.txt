@@ -1,3 +1,0 @@
-/workbench/build/debug/CMakeFiles/rddc_x.dir
-/workbench/build/debug/CMakeFiles/edit_cache.dir
-/workbench/build/debug/CMakeFiles/rebuild_cache.dir
