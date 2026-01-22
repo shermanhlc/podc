@@ -1,0 +1,15 @@
+#!/bin/bash
+
+BIN_NAME="podc"
+DOCKERFILE="dockerfile"  # todo: change to /var/podc/dockerfile
+
+__usage="Usage: $BIN_NAME $(basename $0) [image tag] [arg file]  # todo: adjust this so that each command and options are shown
+
+Options:
+    image tag    name of the image
+    arg file     path to argument file to use when building"
+
+check_deps_installed()
+{
+    command -v podman >/dev/null 2>&1 || { echo >&2 "podman is required to use $BIN_NAME, install it and try again"; exit 1; }
+}
