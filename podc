@@ -15,4 +15,5 @@ check_deps_installed
 command="$1"
 shift # remove first arg from $@
 
-"$COMMAND_DIR/$command" "$@"
+# todo: check if command is a file in MAIN_COMMAND_DIR, then check if its in the LOCAL_COMMAND_DIR
+"$MAIN_COMMAND_DIR/$command" "$@"

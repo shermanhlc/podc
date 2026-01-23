@@ -1,0 +1,6 @@
+#!/bin/bash
+# as of 1/22/26, this file HAS to exist, as the dockerfile targets it for a COPY and RUN step, which will fail if its not here 
+
+set -euo pipefail
+
+curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh -s -- -y

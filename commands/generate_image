@@ -15,6 +15,9 @@ if [ -z "${1:-}" ] || [ -z "${2:-}" ]; then
     echo "$__usage"
     exit 1
 fi
+
+# add a check for commands/init here? then it can explain why and what its for. also that it can be empty
+
 #----#
 
 image_tag="$1"
