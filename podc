@@ -1,0 +1,18 @@
+#!/bin/bash
+set -euo pipefail
+
+#-- "everything here?" checks --#
+shared_vars=commands/shared_vars  # todo: will need to be /var/podc/commands/shared_vars
+if [ ! -f "$shared_vars" ]; then
+    echo "A required file is missing: $shared_vars"
+    exit 1
+fi
+source "$shared_vars"
+
+check_deps_installed
+#----#
+
+command="$1"
+shift # remove first arg from $@
+
+"$COMMAND_DIR/$command" "$@"
