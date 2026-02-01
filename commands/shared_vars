@@ -5,6 +5,8 @@ DOCKERFILE="dockerfile"  # todo: change to /var/podc/dockerfile
 MAIN_COMMAND_DIR="$HOME/repos/podc/commands" # todo: change to /var/podc/commands
 LOCAL_COMMAND_DIR="$(pwd)/podc/commands"
 
+PROJ_IN_CONTAINER_DIR="/home/sherman/" # todo: definitely change this
+
 __usage="Usage: $BIN_NAME $(basename $0) [image tag] [arg file]  # todo: adjust this so that each command and options are shown
 
 Options:

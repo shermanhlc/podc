@@ -1,0 +1,27 @@
+#!/bin/bash
+set -euo pipefail
+
+#-- "everything here?" checks --#
+shared_vars=commands/shared_vars  # todo: will need to be /var/podc/commands/shared_vars
+if [ ! -f "$shared_vars" ]; then
+    echo "A required file is missing: $shared_vars"
+    exit 1
+fi
+source "$shared_vars"
+
+check_deps_installed
+
+if [ -z "${1:-}" ] || [ -z "${2:-}" ]; then
+    echo "$__usage"
+    exit 1
+fi
+#----#
+
+## this script should be run from the project directory
+
+## IT DOESNT KNOW THE IMAGE NAME 
+## this is going to need some fix
+podman run \
+    -v "$PWD:$PROJ_IN_CONTAINER_DIR" \
+    -w 
+
